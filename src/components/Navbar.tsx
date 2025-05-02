@@ -8,7 +8,7 @@ export function Navbar() {
 
   const navItems = [
     { path: '/', label: 'Home' },
-    { path: '/test', label: 'New Test' },
+    //{ path: '/test', label: 'New Test' },
     { path: '/history', label: 'History' },
     { path: '/about', label: 'About' },
     { path: '/contact', label: 'Contact' },

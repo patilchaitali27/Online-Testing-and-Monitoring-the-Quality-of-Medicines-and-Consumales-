@@ -8,6 +8,7 @@ import { HistoryPage } from './pages/HistoryPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { TestResult } from './types';
+import AuthPage from './pages/AuthPage';
 
 function App() {
   const [testResults, setTestResults] = useState<TestResult[]>([]);
@@ -27,6 +28,7 @@ function App() {
             <Route path="/history" element={<HistoryPage results={testResults} />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/auth" element={<AuthPage />} />
           </Routes>
         </main>
         <Footer />

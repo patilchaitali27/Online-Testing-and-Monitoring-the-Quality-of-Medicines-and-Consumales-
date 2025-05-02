@@ -1,14 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle } from 'lucide-react';
-import sampleImg from '../assets/image.png'; // ✅ Adjust path if different
+import React from "react";
+import { Link } from "react-router-dom";
+import { CheckCircle } from "lucide-react";
+import sampleImg from "../assets/image.png"; 
 
 export function LandingPage() {
   const features = [
-    'Instant pH verification',
-    'Comprehensive medicine database',
-    'Real-time authenticity check',
-    'Detailed test history',
+    { icon: <CheckCircle className="h-6 w-6 text-white" />, text: "Instant pH verification" },
+    { icon: <CheckCircle className="h-6 w-6 text-white" />, text: "Comprehensive medicine database" },
+    { icon: <CheckCircle className="h-6 w-6 text-white" />, text: "Real-time authenticity check" },
+    { icon: <CheckCircle className="h-6 w-6 text-white" />, text: "Detailed test history" },
   ];
 
   return (
@@ -22,16 +22,17 @@ export function LandingPage() {
             <span className="block text-blue-600">with pH Testing</span>
           </h1>
           <p className="mt-4 text-base text-gray-500 sm:mt-6 sm:text-lg md:text-xl">
-            Ensure the authenticity of medicines through our advanced pH testing system. Quick, reliable, and accurate results to protect public health.
+            Ensure the authenticity of medicines through our pH testing
+            system. Quick, reliable, and accurate results to protect public
+            health.
           </p>
           <div className="mt-6 flex space-x-4">
-            <Link
-              to="/test"
-              className="inline-flex items-center px-6 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-md text-lg font-medium"
-            >
-              Start Testing
-              <ArrowRight className="ml-2 h-5 w-5" />
+            <Link to="/auth">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-xl font-semibold">
+                Start Testing → 
+              </button>
             </Link>
+
             <Link
               to="/about"
               className="inline-flex items-center px-6 py-3 text-blue-700 bg-blue-100 hover:bg-blue-200 rounded-md text-lg font-medium"
@@ -62,13 +63,21 @@ export function LandingPage() {
               Why Choose Our System?
             </p>
           </div>
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
             {features.map((feature, idx) => (
-              <div key={idx} className="flex items-center space-x-4">
-                <div className="flex items-center justify-center w-12 h-12 bg-blue-500 rounded-md text-white">
-                  <CheckCircle className="h-6 w-6" />
+              <div
+                key={idx}
+                className="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out"
+              >
+                {/* Icon with a blue circular background */}
+                <div className="w-12 h-12 flex items-center justify-center bg-blue-500 rounded-full">
+                  {feature.icon}
                 </div>
-                <p className="text-lg font-medium text-gray-900">{feature}</p>
+
+                {/* Feature description */}
+                <div>
+                  <p className="text-lg font-medium text-gray-900">{feature.text}</p>
+                </div>
               </div>
             ))}
           </div>
