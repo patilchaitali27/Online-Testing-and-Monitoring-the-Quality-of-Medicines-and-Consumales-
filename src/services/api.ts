@@ -1,5 +1,5 @@
 // /src/services/api.ts
-const API_BASE_URL = "http://localhost:5000/api"; // Adjust if deploying
+const API_BASE_URL = "http://192.168.0.172:5000/api"; // Adjust if deploying
 
 export const registerPharmacist = async (data: any) => {
   const response = await fetch(`${API_BASE_URL}/auth/register`, {
