@@ -5,12 +5,14 @@ import { BeakerIcon, Menu, X } from 'lucide-react';
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const location = useLocation();
-  const isLandingPage = location.pathname === '/';
+
+  // Define all routes where History should be hidden
+  const hideHistoryOn = ['/', '/about', '/contact'];
+  const showHistory = !hideHistoryOn.includes(location.pathname);
 
   const navItems = [
     { path: '/', label: 'Home' },
-    // Only show History if NOT on landing page
-    ...(!isLandingPage ? [{ path: '/history', label: 'History' }] : []),
+    ...(showHistory ? [{ path: '/history', label: 'History' }] : []),
     { path: '/about', label: 'About' },
     { path: '/contact', label: 'Contact' },
   ];
@@ -49,11 +51,7 @@ export function Navbar() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-600 hover:text-blue-600 focus:outline-none"
             >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
